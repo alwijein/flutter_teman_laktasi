@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "2010386679",
+    "project_id": "teman-laktasi",
+    "storage_bucket": "teman-laktasi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2010386679:android:554c5d38323b76c35643f2",
+        "android_client_info": {
+          "package_name": "com.cleoun.flutter_teman_laktasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2010386679-kcih394uf6m210mpgldnmti9jrk6o6l7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cleoun.flutter_teman_laktasi",
+            "certificate_hash": "a9e772b95246af7b7ae5224222e676f92fd98ff5"
+          }
+        },
+        {
+          "client_id": "2010386679-3efqlts37k8bdbg3kcqmj7jf1os9i3jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWiwQuGQmwa9LsWJKwqi0sVgzoUYWTKD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2010386679-3efqlts37k8bdbg3kcqmj7jf1os9i3jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
