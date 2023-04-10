@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_teman_laktasi/app/modules/components/components.dart';
+import 'package:flutter_teman_laktasi/app/routes/app_pages.dart';
 import 'package:flutter_teman_laktasi/config/config.dart';
 import 'package:flutter_teman_laktasi/constants/constants.dart';
 
@@ -72,7 +73,7 @@ class OnboardingView extends GetView<OnboardingController> {
                         fontSize: 16,
                       ),
                     ),
-                    press: () {},
+                    press: () => Get.toNamed(Routes.REGISTER),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -84,6 +85,7 @@ class OnboardingView extends GetView<OnboardingController> {
                         ),
                       ),
                       GestureDetector(
+                        onTap: () => Get.toNamed(Routes.LOGIN),
                         child: Text(
                           'Masuk',
                           style: primaryTextStyle.copyWith(

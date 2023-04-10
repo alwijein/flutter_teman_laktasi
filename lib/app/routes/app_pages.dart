@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import 'package:flutter_teman_laktasi/app/modules/admin_chat/bindings/admin_chat_binding.dart';
+import 'package:flutter_teman_laktasi/app/modules/admin_chat/views/admin_chat_view.dart';
+import 'package:flutter_teman_laktasi/app/modules/chat/bindings/chat_binding.dart';
+import 'package:flutter_teman_laktasi/app/modules/chat/views/chat_view.dart';
 import 'package:flutter_teman_laktasi/app/modules/home/bindings/home_binding.dart';
 import 'package:flutter_teman_laktasi/app/modules/home/views/home_view.dart';
 import 'package:flutter_teman_laktasi/app/modules/login/bindings/login_binding.dart';
@@ -43,6 +47,16 @@ class AppPages {
       name: _Paths.SPLASH,
       page: () => SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => ChatView(),
+      binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_CHAT,
+      page: () => AdminChatView(),
+      binding: AdminChatBinding(),
     ),
   ];
 }

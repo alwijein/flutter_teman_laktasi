@@ -1,20 +1,12 @@
+import 'package:flutter_teman_laktasi/app/data/models/user_model/user_model.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  UserModel userModel = UserModel();
 
-  final count = 0.obs;
   @override
   void onInit() {
+    userModel = Get.arguments;
     super.onInit();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

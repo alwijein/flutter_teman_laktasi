@@ -1,20 +1,26 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
-  //TODO: Implement RegisterController
+  TextEditingController fullnameC = TextEditingController();
+  TextEditingController emailC = TextEditingController();
+  TextEditingController passwordC = TextEditingController();
+  TextEditingController noHpC = TextEditingController();
+  TextEditingController alamatC = TextEditingController();
+  TextEditingController nifasHariKeC = TextEditingController();
+  TextEditingController lokasiFasyankesC = TextEditingController();
+  TextEditingController jumlahAnakC = TextEditingController();
 
-  final count = 0.obs;
   @override
-  void onInit() {
-    super.onInit();
+  void onClose() {
+    fullnameC.dispose();
+    emailC.dispose();
+    passwordC.dispose();
+    noHpC.dispose();
+    alamatC.dispose();
+    nifasHariKeC.dispose();
+    lokasiFasyankesC.dispose();
+    jumlahAnakC.dispose();
+    super.onClose();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

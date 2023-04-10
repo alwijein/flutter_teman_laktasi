@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_teman_laktasi/app/data/models/user_model/user_model.dart';
+import 'package:flutter_teman_laktasi/app/data/services/services.dart';
 import 'package:flutter_teman_laktasi/app/modules/components/components.dart';
+import 'package:flutter_teman_laktasi/app/routes/app_pages.dart';
 import 'package:flutter_teman_laktasi/config/config.dart';
 import 'package:flutter_teman_laktasi/constants/constants.dart';
 
@@ -13,21 +16,26 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SvgPicture.asset('assets/images/logo-small.svg'),
-        actions: [
-          CircleAvatar(),
-        ],
+        title: SvgPicture.asset('assets/images/logo-small.svg'),
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: CircleAvatar(),
+        //   ),
+        // ],
+        // centerTitle: false,
       ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(kDefaultPadding),
           width: double.infinity,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hi, Alwi Jein',
+                'Hi, ${controller.userModel.fullname}',
                 style: subtitleTextStyle.copyWith(
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
               SizedBox(
@@ -35,12 +43,12 @@ class HomeView extends GetView<HomeController> {
               ),
               Text(
                 'Silahkan Pilih Menu Yang Tersedia',
-                style: subtitleTextStyle.copyWith(
+                style: primaryTextStyle.copyWith(
                   fontSize: 36,
                   fontWeight: bold,
                 ),
               ),
-              SizedBox(height: getPropertionateScreenWidht(50)),
+              SizedBox(height: getPropertionateScreenWidht(30)),
               Row(
                 children: [
                   Expanded(
@@ -62,8 +70,23 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ],
               ),
-              MenuCardLandscape(),
-              SizedBox(height: getPropertionateScreenWidht(50)),
+              SizedBox(
+                height: getPropertionateScreenWidht(15),
+              ),
+              GestureDetector(
+                onTap: () => Get.toNamed(
+                  controller.userModel.role == 'user'
+                      ? Routes.CHAT
+                      : Routes.ADMIN_CHAT,
+                  arguments: {
+                    'user': controller.userModel,
+                    'isFromUser': true,
+                    'lokasiFasyankes': controller.userModel.lokasiFasyankes,
+                  },
+                ),
+                child: MenuCardLandscape(),
+              ),
+              SizedBox(height: getPropertionateScreenWidht(30)),
               DefaultButton(
                 text: Text(
                   'Keluar dari aplikasi',
@@ -72,7 +95,9 @@ class HomeView extends GetView<HomeController> {
                     fontSize: 16,
                   ),
                 ),
-                press: () {},
+                press: () {
+                  AuthServices.signOut();
+                },
               ),
             ],
           ),
@@ -92,6 +117,7 @@ class MenuCardLandscape extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: getPropertionateScreenWidht(116),
+      padding: EdgeInsets.all(kDefaultPadding),
       decoration: BoxDecoration(
         color: kBackgroundColor2,
         boxShadow: softShadow,
@@ -99,7 +125,7 @@ class MenuCardLandscape extends StatelessWidget {
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             padding: EdgeInsets.all(kDefaultPadding),
@@ -137,7 +163,8 @@ class MenuCardPotrait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getPropertionateScreenWidht(185),
+      padding: EdgeInsets.all(kDefaultPadding - 5),
+      height: getPropertionateScreenWidht(170),
       decoration: BoxDecoration(
         color: kBackgroundColor2,
         boxShadow: softShadow,
@@ -162,6 +189,7 @@ class MenuCardPotrait extends StatelessWidget {
               fontWeight: bold,
               fontSize: 20,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

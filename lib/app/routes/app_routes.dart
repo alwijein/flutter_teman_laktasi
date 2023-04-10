@@ -9,6 +9,8 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const ONBOARDING = _Paths.ONBOARDING;
   static const SPLASH = _Paths.SPLASH;
+  static const CHAT = _Paths.CHAT;
+  static const ADMIN_CHAT = _Paths.ADMIN_CHAT;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const REGISTER = '/register';
   static const ONBOARDING = '/onboarding';
   static const SPLASH = '/splash';
+  static const CHAT = '/chat';
+  static const ADMIN_CHAT = '/admin-chat';
 }

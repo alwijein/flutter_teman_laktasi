@@ -23,12 +23,18 @@ ThemeData theme() {
 
 InputDecorationTheme inputDecorationTheme() {
   return InputDecorationTheme(
-    hintStyle: subtitleTextStyle,
+    hintStyle: subtitleTextStyle.copyWith(
+      fontSize: 14,
+    ),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
       borderSide: BorderSide(
         color: kSecondaryColor,
       ),
+    ),
+    contentPadding: EdgeInsets.symmetric(
+      vertical: 10.0,
+      horizontal: 10.0,
     ),
   );
 }
