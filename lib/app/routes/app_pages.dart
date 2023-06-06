@@ -10,10 +10,14 @@ import 'package:flutter_teman_laktasi/app/modules/login/bindings/login_binding.d
 import 'package:flutter_teman_laktasi/app/modules/login/views/login_view.dart';
 import 'package:flutter_teman_laktasi/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:flutter_teman_laktasi/app/modules/onboarding/views/onboarding_view.dart';
+import 'package:flutter_teman_laktasi/app/modules/pengantar_pijit_endorphine/bindings/pengantar_pijit_endorphine_binding.dart';
+import 'package:flutter_teman_laktasi/app/modules/pengantar_pijit_endorphine/views/pengantar_pijit_endorphine_view.dart';
 import 'package:flutter_teman_laktasi/app/modules/register/bindings/register_binding.dart';
 import 'package:flutter_teman_laktasi/app/modules/register/views/register_view.dart';
 import 'package:flutter_teman_laktasi/app/modules/splash/bindings/splash_binding.dart';
 import 'package:flutter_teman_laktasi/app/modules/splash/views/splash_view.dart';
+import 'package:flutter_teman_laktasi/app/modules/teknik_pijit_endorphine/bindings/teknik_pijit_endorphine_binding.dart';
+import 'package:flutter_teman_laktasi/app/modules/teknik_pijit_endorphine/views/teknik_pijit_endorphine_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +61,16 @@ class AppPages {
       name: _Paths.ADMIN_CHAT,
       page: () => AdminChatView(),
       binding: AdminChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.PENGANTAR_PIJIT_ENDORPHINE,
+      page: () => PengantarPijitEndorphineView(),
+      binding: PengantarPijitEndorphineBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEKNIK_PIJIT_ENDORPHINE,
+      page: () => TeknikPijitEndorphineView(),
+      binding: TeknikPijitEndorphineBinding(),
     ),
   ];
 }

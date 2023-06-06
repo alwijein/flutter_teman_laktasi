@@ -17,13 +17,6 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: SvgPicture.asset('assets/images/logo-small.svg'),
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: CircleAvatar(),
-        //   ),
-        // ],
-        // centerTitle: false,
       ),
       body: SafeArea(
         child: Container(
@@ -52,20 +45,27 @@ class HomeView extends GetView<HomeController> {
               Row(
                 children: [
                   Expanded(
-                    child: MenuCardPotrait(
-                      icon: 'icon-book',
-                      title: 'Pengantar Pijit Endorphine',
-                      color: Color(0xFFBDEB98),
+                    child: GestureDetector(
+                      onTap: () =>
+                          Get.toNamed(Routes.PENGANTAR_PIJIT_ENDORPHINE),
+                      child: MenuCardPotrait(
+                        icon: 'icon-book',
+                        title: 'Pengantar Pijit Endorphin',
+                        color: Color(0xFFBDEB98),
+                      ),
                     ),
                   ),
                   SizedBox(
                     width: getPropertionateScreenWidht(15),
                   ),
                   Expanded(
-                    child: MenuCardPotrait(
-                      icon: 'icon-breast',
-                      title: 'Teknik Pijit Endorphine',
-                      color: Color(0xFFE6B47C),
+                    child: GestureDetector(
+                      onTap: () => Get.toNamed(Routes.TEKNIK_PIJIT_ENDORPHINE),
+                      child: MenuCardPotrait(
+                        icon: 'icon-breast',
+                        title: 'Teknik Pijit Endorphin',
+                        color: Color(0xFFE6B47C),
+                      ),
                     ),
                   ),
                 ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_teman_laktasi/app/data/services/services.dart';
 import 'package:flutter_teman_laktasi/app/modules/components/components.dart';
 import 'package:flutter_teman_laktasi/app/routes/app_pages.dart';
@@ -102,12 +103,15 @@ class RegisterView extends GetView<RegisterController> {
                   intputType: TextInputType.phone,
                   textController: controller.noHpC,
                 ),
-                InputWithLabel(
-                  label: 'Password',
-                  hint: 'Masukkan password anda',
-                  intputType: TextInputType.visiblePassword,
-                  textController: controller.passwordC,
-                  obscureText: true,
+                Obx(
+                  () => InputWithLabel(
+                    label: 'Password',
+                    hint: 'Masukkan password anda',
+                    intputType: TextInputType.visiblePassword,
+                    obscureText: controller.isShow.value,
+                    textController: controller.passwordC,
+                    onShowPass: () => controller.showPass(),
+                  ),
                 ),
                 SizedBox(
                   height: getPropertionateScreenHeight(50),
@@ -119,8 +123,10 @@ class RegisterView extends GetView<RegisterController> {
                       fontWeight: semiBold,
                     ),
                   ),
-                  press: () {
-                    AuthServices.signUp(
+                  press: () async {
+                    EasyLoading.show(status: 'Loading');
+
+                    if (!await AuthServices.signUp(
                       fullname: controller.fullnameC.text,
                       email: controller.emailC.text,
                       noHp: controller.noHpC.text,
@@ -129,7 +135,11 @@ class RegisterView extends GetView<RegisterController> {
                       jumlahAnak: controller.jumlahAnakC.text,
                       lokasiFasyankes: controller.lokasiFasyankesC.text,
                       password: controller.passwordC.text,
-                    );
+                    )) {
+                      EasyLoading.showError('Gagal melakukan register');
+                    }
+
+                    EasyLoading.dismiss();
                   },
                 ),
               ],

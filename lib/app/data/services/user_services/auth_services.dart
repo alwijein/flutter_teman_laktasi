@@ -38,7 +38,6 @@ class AuthServices {
       return true;
 
       // ...
-
     } catch (e) {
       return false;
     }

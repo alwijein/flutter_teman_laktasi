@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_teman_laktasi/config/config.dart';
 
 // For App Color
-const Color kPrimaryColor = Color(0xFFEC4C4C);
+const Color kPrimaryColor = Color(0xFF13A87C);
 const Color kPrimaryLightColor = Color(0xFFC6CEDF);
 const Color kSecondaryColor = Color(0xFFB5B5B5);
 const Color kBackgroundColor1 = Color(0xFFF6F7FB);

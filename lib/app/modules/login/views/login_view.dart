@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_teman_laktasi/app/data/services/services.dart';
 import 'package:flutter_teman_laktasi/app/modules/components/components.dart';
 import 'package:flutter_teman_laktasi/config/config.dart';
@@ -48,12 +49,15 @@ class LoginView extends GetView<LoginController> {
                   intputType: TextInputType.emailAddress,
                   textController: controller.emailC,
                 ),
-                InputWithLabel(
-                  label: 'Password',
-                  hint: 'Masukkan password anda',
-                  intputType: TextInputType.visiblePassword,
-                  obscureText: true,
-                  textController: controller.passwordC,
+                Obx(
+                  () => InputWithLabel(
+                    label: 'Password',
+                    hint: 'Masukkan password anda',
+                    intputType: TextInputType.visiblePassword,
+                    obscureText: controller.isShow.value,
+                    textController: controller.passwordC,
+                    onShowPass: () => controller.showPass(),
+                  ),
                 ),
                 SizedBox(
                   height: getPropertionateScreenHeight(50),
@@ -66,10 +70,18 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                   press: () async {
-                    await AuthServices.signIn(
+                    EasyLoading.show(status: 'Loading');
+
+                    if (!await AuthServices.signIn(
                       controller.emailC.text,
                       controller.passwordC.text,
-                    );
+                    )) {
+                      EasyLoading.showError(
+                        'Gagal melakukan login harap periksa password dan email anda',
+                      );
+                    }
+
+                    EasyLoading.dismiss();
                   },
                 ),
               ],

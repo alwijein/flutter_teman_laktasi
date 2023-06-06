@@ -6,14 +6,16 @@ class InputWithLabel extends StatelessWidget {
     required this.label,
     required this.hint,
     this.intputType = TextInputType.text,
-    this.obscureText = false,
+    this.obscureText,
     this.textController,
+    this.onShowPass,
   }) : super(key: key);
 
   final String label, hint;
   final TextInputType intputType;
-  final bool obscureText;
+  final bool? obscureText;
   final TextEditingController? textController;
+  final Function()? onShowPass;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,13 +34,27 @@ class InputWithLabel extends StatelessWidget {
             height: getPropertionateScreenWidht(8),
           ),
           TextFormField(
-            obscureText: obscureText,
+            obscureText: obscureText ?? false,
             decoration: InputDecoration(
               hintText: hint,
-              suffixIcon: obscureText ? Icon(Icons.visibility) : null,
+              suffixIcon: obscureText == null
+                  ? null
+                  : GestureDetector(
+                      onTap: onShowPass,
+                      child: Icon(
+                        obscureText! ? Icons.visibility_off : Icons.visibility,
+                      ),
+                    ),
             ),
             keyboardType: intputType,
             controller: textController,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Field tidak boleh kosong';
+              } else {
+                return null;
+              }
+            },
           ),
         ],
       ),

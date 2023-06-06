@@ -11,6 +11,10 @@ class RegisterController extends GetxController {
   TextEditingController lokasiFasyankesC = TextEditingController();
   TextEditingController jumlahAnakC = TextEditingController();
 
+  var isShow = true.obs;
+
+  void showPass() => isShow.value = !isShow.value;
+
   @override
   void onClose() {
     fullnameC.dispose();

@@ -11,6 +11,8 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const CHAT = _Paths.CHAT;
   static const ADMIN_CHAT = _Paths.ADMIN_CHAT;
+  static const PENGANTAR_PIJIT_ENDORPHINE = _Paths.PENGANTAR_PIJIT_ENDORPHINE;
+  static const TEKNIK_PIJIT_ENDORPHINE = _Paths.TEKNIK_PIJIT_ENDORPHINE;
 }
 
 abstract class _Paths {
@@ -21,4 +23,6 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const CHAT = '/chat';
   static const ADMIN_CHAT = '/admin-chat';
+  static const PENGANTAR_PIJIT_ENDORPHINE = '/pengantar-pijit-endorphine';
+  static const TEKNIK_PIJIT_ENDORPHINE = '/teknik-pijit-endorphine';
 }
